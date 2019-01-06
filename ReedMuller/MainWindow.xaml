@@ -1,0 +1,61 @@
+﻿<Window x:Class="ReedMuller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReedMuller"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="570">
+	<Grid Margin="0,0,-0.4,0.4">
+		<TextBox x:Name="rStr" HorizontalAlignment="Left" Height="23" Margin="22,9,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="25"/>
+		<TextBlock HorizontalAlignment="Left" Margin="3,12,0,0" TextWrapping="Wrap" Text="r:" VerticalAlignment="Top"/>
+		<TextBox x:Name="mStr" HorizontalAlignment="Left" Height="23" Margin="22,36,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="25"/>
+		<TextBlock HorizontalAlignment="Left" Margin="3,38,0,0" TextWrapping="Wrap" Text="m:" VerticalAlignment="Top"/>
+		<Grid x:Name="vectorGrid" Margin="10,100,-0.4,0.4">
+			<TextBox x:Name="vector" HorizontalAlignment="Left" Height="80" Margin="0,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" Text="0101011" VerticalScrollBarVisibility="Auto"/>
+			<Button Content="Encode" HorizontalAlignment="Left" Margin="243,111,0,0" VerticalAlignment="Top" Width="75" Click="Encode_Button_Click" FontSize="16"/>
+			<TextBox x:Name="encoded" HorizontalAlignment="Left" Height="80" Margin="1,164,0,0" TextWrapping="Wrap" Text="01110010" VerticalAlignment="Top" Width="318" VerticalScrollBarVisibility="Auto"/>
+			<TextBox x:Name="pStr" HorizontalAlignment="Left" Height="19" Margin="200,250,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="26"/>
+			<TextBlock HorizontalAlignment="Left" Margin="227,251,0,0" TextWrapping="Wrap" Text="%" VerticalAlignment="Top" RenderTransformOrigin="0.77,3.396"/>
+			<Button Content="Send" HorizontalAlignment="Left" Margin="243,249,0,0" VerticalAlignment="Top" Width="75" Click="Send_Button_Click" FontSize="14"/>
+			<TextBox x:Name="changedCode" HorizontalAlignment="Left" Height="80" Margin="1,298,0,0" TextWrapping="Wrap" Text="01110010" VerticalAlignment="Top" Width="318" VerticalScrollBarVisibility="Auto"/>
+			<Button Content="Decode" HorizontalAlignment="Left" Margin="243,383,0,0" VerticalAlignment="Top" Width="75" Click="Decode_Button_Click" FontSize="16" Height="27"/>
+			<TextBox x:Name="decoded" HorizontalAlignment="Left" Height="80" Margin="1,437,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="319"/>
+			<Label Content="Vector to encode:" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Top"/>
+			<Label Content="Encoded vector:" HorizontalAlignment="Left" Margin="1,138,0,0" VerticalAlignment="Top"/>
+			<Label Content="Received vector:" HorizontalAlignment="Left" Margin="1,272,0,0" VerticalAlignment="Top"/>
+			<Label Content="Decoded vector:" HorizontalAlignment="Left" Margin="1,411,0,0" VerticalAlignment="Top"/>
+			<Label Content="Channel error probability:" HorizontalAlignment="Left" Margin="54,246,0,0" VerticalAlignment="Top"/>
+		</Grid>
+		<TextBlock x:Name="notificationsField" HorizontalAlignment="Left" Height="61" Margin="128,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="412"/>
+		<Label Content="Notifications:" HorizontalAlignment="Left" Height="24" Margin="127,2,0,0" VerticalAlignment="Top" Width="84"/>
+		<Grid x:Name="textGrid" Margin="10,100,-0.4,0.4">
+			<TextBox x:Name="originalTextField" HorizontalAlignment="Left" Height="80" Margin="0,26,0,0" TextWrapping="Wrap" Text="ABC" VerticalAlignment="Top" Width="317" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+			<TextBox x:Name="pTextStr" HorizontalAlignment="Left" Height="19" Margin="200,112,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="26"/>
+			<TextBlock HorizontalAlignment="Left" Margin="227,114,0,0" TextWrapping="Wrap" Text="%" VerticalAlignment="Top" RenderTransformOrigin="0.77,3.396"/>
+			<Button Content="Send" HorizontalAlignment="Left" Margin="242,111,0,0" VerticalAlignment="Top" Width="75" Click="SendText_Button_Click" FontSize="14"/>
+			<TextBox x:Name="encodedTextField" HorizontalAlignment="Left" Height="80" Margin="0,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" VerticalScrollBarVisibility="Auto"/>
+			<TextBox x:Name="textField" HorizontalAlignment="Left" Height="80" Margin="0,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" VerticalScrollBarVisibility="Auto"/>
+			<Label Content="Original text:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+			<Label Content="Channel error probability:" HorizontalAlignment="Left" Margin="54,108,0,0" VerticalAlignment="Top"/>
+			<Label Content="Received text with encoding:" HorizontalAlignment="Left" Margin="0,273,0,0" VerticalAlignment="Top"/>
+			<Label Content="Received text without encoding:" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top"/>
+		</Grid>
+		<Grid x:Name="imageGrid" Margin="10,100,-0.4,0.4">
+			<Button Content="Choose image" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="106" Click="File_Button_Click" FontSize="14"/>
+			<Image x:Name="originalImage"  HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" Height="250" Width="250" Stretch="Uniform"/>
+			<Image x:Name="encodedImage"  HorizontalAlignment="Left" Margin="284,317,0,0" VerticalAlignment="Top" Height="250" Width="250" Stretch="Uniform"/>
+			<Image x:Name="image"  HorizontalAlignment="Left" Margin="0,317,0,0" VerticalAlignment="Top" Height="250" Width="250" Stretch="Uniform"/>
+			<TextBox x:Name="pImageStr" HorizontalAlignment="Left" Height="19" Margin="256,4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="26"/>
+			<TextBlock HorizontalAlignment="Left" Margin="283,4,0,0" TextWrapping="Wrap" Text="%" VerticalAlignment="Top" RenderTransformOrigin="0.77,3.396"/>
+			<Button Content="Send" HorizontalAlignment="Left" Margin="298,4,0,0" VerticalAlignment="Top" Width="75" Click="SendImage_Button_Click"/>
+			<Label Content="Received without encoding:" HorizontalAlignment="Left" Margin="0,286,0,0" VerticalAlignment="Top"/>
+			<Label Content="Received with encoding:" HorizontalAlignment="Left" Margin="284,286,0,0" VerticalAlignment="Top"/>
+			<Label Content="Channel error probability:" HorizontalAlignment="Left" Margin="111,0,0,0" VerticalAlignment="Top"/>
+
+		</Grid>
+		<Button Content="Matrix" HorizontalAlignment="Left" Margin="62,23,0,0" VerticalAlignment="Top" Width="60" Height="20" Click="Matrix_Button_Click"/>
+		<ComboBox x:Name="selectionBox" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="112" SelectionChanged="Selection_Changed"/>
+
+	</Grid>
+</Window>
